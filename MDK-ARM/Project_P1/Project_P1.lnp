@@ -1,0 +1,26 @@
+--cpu Cortex-M3
+"project_p1\startup_stm32f103xb.o"
+"project_p1\main.o"
+"project_p1\stm32f1xx_it.o"
+"project_p1\stm32f1xx_hal_msp.o"
+"project_p1\stm32f1xx_hal_gpio_ex.o"
+"project_p1\stm32f1xx_hal_adc.o"
+"project_p1\stm32f1xx_hal_adc_ex.o"
+"project_p1\stm32f1xx_hal.o"
+"project_p1\stm32f1xx_hal_rcc.o"
+"project_p1\stm32f1xx_hal_rcc_ex.o"
+"project_p1\stm32f1xx_hal_gpio.o"
+"project_p1\stm32f1xx_hal_dma.o"
+"project_p1\stm32f1xx_hal_cortex.o"
+"project_p1\stm32f1xx_hal_pwr.o"
+"project_p1\stm32f1xx_hal_flash.o"
+"project_p1\stm32f1xx_hal_flash_ex.o"
+"project_p1\stm32f1xx_hal_exti.o"
+"project_p1\stm32f1xx_hal_tim.o"
+"project_p1\stm32f1xx_hal_tim_ex.o"
+"project_p1\stm32f1xx_hal_uart.o"
+"project_p1\system_stm32f1xx.o"
+--library_type=microlib --strict --scatter "Project_P1\Project_P1.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "Project_P1.map" -o Project_P1\Project_P1.axf
