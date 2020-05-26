@@ -12,8 +12,8 @@ xs = []
 ys = []
 ser = serial.Serial()
 print(sys.argv[1])
-ser.port = 'COM8'
-ser.baudrate = 9600
+ser.port = sys.argv[1]
+ser.baudrate = sys.argv[2]
 ser.bytesize = serial.EIGHTBITS
 ser.partiy = serial.PARITY_NONE
 ser.timeout = 2
