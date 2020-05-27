@@ -8,7 +8,7 @@ the heart sensor.
 
 clone/download the files from master branch
 
-Run "main.py"
+Run "start_ui.py"
 
 Choose the baud rate and click "select" to save your choice
 choose the port number and click "select" to save your choice
