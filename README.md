@@ -8,13 +8,21 @@ the heart sensor.
 Dependencies: (Libraries)
 
 import sys
+
 import os
+
 import serial
+
 import pickle
+
 import heartpy as hp
+
 from time import sleep
+
 import datetime as dt
+
 import matplotlib.pyplot as plt
+
 import matplotlib.animation as animation
 
 For building and running the program:
