@@ -8,7 +8,7 @@ the heart sensor.
 
 clone/download the files from master branch
 
-*The source code must be loaded on the microcontroller 
+*The source code must be loaded on the microcontroller*
 
 Run "start_ui.py"
 
