@@ -2,9 +2,24 @@ import string
 import sys
 import os
 import serial
+import pickle
+import heartpy as hp
+from time import sleep
 import datetime as dt
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
+import threading
+
+arr = []
+
+# def printit():
+#   threading.Timer(5.0, printit).start()
+#   global arr
+#   with open('data.txt', 'w') as outfile:
+#       outfile.write("\n".join(arr))
+#
+# printit()
+
 # Create figure for plotting
 fig = plt.figure()
 ax = fig.add_subplot(1, 1, 1)
@@ -19,9 +34,10 @@ ser.bytesize = serial.EIGHTBITS
 ser.partiy = serial.PARITY_NONE
 ser.timeout = 2
 ser.open()
-arr = []
+count = 0
+
 def get_read():
-    a=''
+    a = ''
     while(1):
         read_str = ser.read().decode("utf-8")
         if(read_str == '\r'):
@@ -33,18 +49,21 @@ def get_read():
              a = (str(a) + str(read_str))
 
 
-def animate(i, xs, ys):
 
+def animate(i, xs, ys):
+    global count
     read = get_read()
     arr.append(read)
-    print(read)
+    count = count + 1
+
+
     # Add x and y to lists
     xs.append(dt.datetime.now().strftime('%H:%M:%S.%f'))
     ys.append(read)
 
     # Limit x and y lists to 20 items
-    xs = xs[-20:]
-    ys = ys[-20:]
+    xs = xs[-50:]
+    ys = ys[-50:]
 
     # Draw x and y lists
     ax.clear()
@@ -54,6 +73,7 @@ def animate(i, xs, ys):
     plt.subplots_adjust(bottom=0.30)
     plt.title('Heart Monitor')
     plt.ylabel('Heart sensor data')
-ani = animation.FuncAnimation(fig, animate, fargs=(xs, ys), interval=100)
+
+ani = animation.FuncAnimation(fig, animate, fargs=(xs, ys), interval=1)
 
 plt.show()
